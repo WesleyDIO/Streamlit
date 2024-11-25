@@ -62,7 +62,7 @@ quantidade_vendas_estado = dados.drop_duplicates(subset='Local da compra')[['Loc
 quantidade_vendas_mensal = dados.set_index('Data da Compra').groupby(pd.Grouper(freq='M'))['Preço'].count().reset_index()
 quantidade_vendas_mensal = quantidade_vendas_mensal.rename(columns={'Preço': 'Quantidade'})
 quantidade_vendas_mensal['Ano'] = quantidade_vendas_mensal['Data da Compra'].dt.year
-quantidade_vendas_mensal['Mês'] = quantidade_vendas_mensal['Data da Compra'].dt.month_name(locale='pt_BR')
+quantidade_vendas_mensal['Mês'] = quantidade_vendas_mensal['Data da Compra'].dt.month_name()
 
 top_5_estados_vendas = quantidade_vendas_estado.head(5)
 
